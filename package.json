@@ -1,0 +1,33 @@
+{
+    "name": "@ahrakio/witty-router",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/bundle.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ahrakio/witty-router.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ahrakio/witty-router/issues"
+    },
+    "homepage": "https://github.com/ahrakio/witty-router#readme",
+    "devDependencies": {
+        "@ahrakio/witty-webpack-declaration-files": "^1.0.3",
+        "@types/node": "^10.5.1",
+        "clean-webpack-plugin": "^0.1.19",
+        "ts-loader": "^4.4.2",
+        "typescript": "^2.9.2",
+        "uglifyjs-webpack-plugin": "^1.2.7",
+        "webpack": "^4.16.1",
+        "webpack-cli": "^3.0.8"
+    },
+    "dependencies": {}
+}

@@ -19,6 +19,11 @@ module.exports = {
                 test: /\.ts$/,
                 use: "ts-loader",
                 exclude: /node_modules/
+            },
+            {
+                test: /\.js$/,
+                use: "source-map-loader",
+                enforce: "pre"
             }
         ]
     },
@@ -26,19 +31,28 @@ module.exports = {
         extensions: [".ts", ".js"]
     },
     output: {
-        library: "bundle",
+        library: "router",
         libraryTarget: "umd",
         filename: "bundle.js",
         path: path.resolve(__dirname, "dist")
     },
     target: "node",
     mode: "none",
+    devtool: "source-map",
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: true,
+                uglifyOptions: {
+                    keep_classnames: true
+                }
+            })
+        ]
+    },
     plugins: [
         new CleanWebpackPlugin(clean_paths, clean_options),
-        new UglifyJsPlugin({
-            cache: true,
-            parallel: true
-        }),
         new DeclarationFilesPlugin({
             merge: true,
             include: [
@@ -54,9 +68,6 @@ module.exports = {
                 "Map",
                 "Params"
             ]
-        }),
-        new webpack.SourceMapDevToolPlugin({
-            filename: "bundle.js.map"
         })
     ]
 };

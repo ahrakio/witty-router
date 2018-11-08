@@ -33,11 +33,12 @@ module.exports = {
     output: {
         library: "router",
         libraryTarget: "umd",
-        filename: "bundle.js",
-        path: path.resolve(__dirname, "dist")
+        filename: "router.js",
+        path: path.resolve(__dirname, "dist"),
+        devtoolModuleFilenameTemplate: "[absolute-resource-path]"
     },
     target: "node",
-    mode: "none",
+    mode: "development",
     devtool: "source-map",
     optimization: {
         minimizer: [
@@ -50,6 +51,7 @@ module.exports = {
                 }
             })
         ]
+        // minimize: false
     },
     plugins: [
         new CleanWebpackPlugin(clean_paths, clean_options),
